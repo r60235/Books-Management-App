@@ -13,7 +13,7 @@ export default function Nav() {
         <div className="collapse navbar-collapse" id="navbarNavAltMarkup">
           <div className="navbar-nav">
             <Link className="nav-link" to="/">All Books ({totalBooks})</Link>
-            <Link className="nav-link" to="/addbook">AddP Book</Link>
+            <Link className="nav-link" to="/addbook">Add Book</Link>
           </div>
         </div>
       </div>
