@@ -7,6 +7,9 @@ export default function AllBooks() {
 
   const filteredBooks = filterBooks(filter);
 
+  const readCount = books.filter((book) => book.status === "Read").length;
+  const unreadCount = books.filter((book) => book.status === "Unread").length;
+
   return (
     <div className="container text-center mb-6">
       <h2 className="py-4">All Books</h2>
@@ -15,15 +18,21 @@ export default function AllBooks() {
           All Books ({books.length})
         </button>
         <button onClick={() => setFilter("Read")} className="btn btn-success mx-2">
-          Read Books ({filteredBooks.filter((b) => b.status === "Read").length})
+          Read Books ({readCount}) 
         </button>
         <button onClick={() => setFilter("Unread")} className="btn btn-warning mx-2">
-          Unread Books ({filteredBooks.filter((b) => b.status === "Unread").length})
+          Unread Books ({unreadCount})  
         </button>
       </div>
 
+      <h3 className="mt-5">
+        {filter === "All" && "All Books"}
+        {filter === "Read" && "Read Books"}
+        {filter === "Unread" && "Unread Books"}
+      </h3>
+
       {filteredBooks.length === 0 ? (
-        <h3 className="mt-5">No books available.</h3>
+        <h4 className="mt-5">No books available.</h4>
       ) : (
         <ul className="list-group mt-5 py-2">
           {filteredBooks.map((book) => (
