@@ -6,6 +6,7 @@ export default function AddBook() {
   const [title, setTitle] = useState("");
   const [author, setAuthor] = useState("");
   const [status, setStatus] = useState("Unread");
+  const [message, setMessage] = useState(""); 
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -16,15 +17,22 @@ export default function AddBook() {
       status,
     };
     addBook(newBook);
-    
+
+    setMessage("Book added successfully!");
+
     setTitle("");
     setAuthor("");
     setStatus("Unread");
+
+    setTimeout(() => {
+      setMessage("");
+    }, 3000);
   };
 
   return (
     <div className="container">
       <h2>Add New Book</h2>
+      {message && <div className="alert alert-success">{message}</div>}
       <form onSubmit={handleSubmit}>
         <div className="mb-3">
           <label className="form-label">Title</label>
