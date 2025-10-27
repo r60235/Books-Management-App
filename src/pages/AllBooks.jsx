@@ -9,7 +9,7 @@ export default function AllBooks() {
 
   return (
     <div className="container text-center mb-6">
-      <h2>All Books</h2>
+      <h2 className="py-4">All Books</h2>
       <div className="mb-3">
         <button onClick={() => setFilter("All")} className="btn btn-info mx-2">
           All Books ({books.length})
