@@ -16,6 +16,10 @@ export default function AddBook() {
       status,
     };
     addBook(newBook);
+    
+    setTitle("");
+    setAuthor("");
+    setStatus("Unread");
   };
 
   return (

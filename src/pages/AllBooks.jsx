@@ -22,19 +22,23 @@ export default function AllBooks() {
         </button>
       </div>
 
-      <ul className="list-group mt-5 py-2">
-        {filteredBooks.map((book) => (
-          <li key={book.id} className="list-group-item">
-            <span>{book.title} by {book.author} - {book.status}</span>
-            <button onClick={() => toggleReadStatus(book.id)} className="btn btn-primary mx-2">
-              Toggle Status
-            </button>
-            <button onClick={() => deleteBook(book.id)} className="btn btn-danger">
-              Delete
-            </button>
-          </li>
-        ))}
-      </ul>
+      {filteredBooks.length === 0 ? (
+        <h3 className="mt-5">No books available.</h3>
+      ) : (
+        <ul className="list-group mt-5 py-2">
+          {filteredBooks.map((book) => (
+            <li key={book.id} className="list-group-item">
+              <span>{book.title} by {book.author} - {book.status}</span>
+              <button onClick={() => toggleReadStatus(book.id)} className="btn btn-primary mx-2">
+                Toggle Status
+              </button>
+              <button onClick={() => deleteBook(book.id)} className="btn btn-danger">
+                Delete
+              </button>
+            </li>
+          ))}
+        </ul>
+      )}
     </div>
   );
 }
